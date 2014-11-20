@@ -35,15 +35,14 @@ class Solution:
     	num.sort()
     	numLen = len(num)
 
+    	# i step forward
     	for i in range(numLen):
-    		if num[i] == num[i-1] and i != 0:
+    		if num[i] > 0 or (num[i] == num[i-1] and i != 0):
     			continue
-    		if num[i] > 0:
-    			break
 
+			# j step backward
     		for j in range(i + 1, numLen):
     			j = numLen + i - j
-
     			if j + 1 != numLen and num[j] == num[j+1]:
     				continue
 
@@ -52,7 +51,8 @@ class Solution:
     				continue
     			if needed > num[j]:
     				break 
-
+    				
+    			# binary_search is better for find middle value
     			if binary_search(num[i+1:j], needed) != None: 
     				mapping.append([num[i], needed, num[j]])
 

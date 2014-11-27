@@ -15,4 +15,18 @@ Output: index1=1, index2=2
 class Solution:
     # @return a tuple, (index1, index2)
     def twoSum(self, num, target):
+    	match = dict()
+
+    	for i in range(len(num)):
+    		v = match.get(num[i], None)
+    		if v != None:
+    			return v + 1, i + 1
+
+    		match[target - num[i]] = i
+
+    	return None
+
+if __name__ == '__main__':
+	s = Solution();
+	print s.twoSum([3,2,4], 6)
         

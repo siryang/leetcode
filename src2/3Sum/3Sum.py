@@ -41,8 +41,7 @@ class Solution:
     			continue
 
 			# j step backward
-    		for j in range(i + 1, numLen):
-    			j = numLen + i - j
+    		for j in reversed(range(i + 1, numLen)):
     			if j + 1 != numLen and num[j] == num[j+1]:
     				continue
 

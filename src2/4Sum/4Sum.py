@@ -15,11 +15,33 @@ The solution set must not contain duplicate quadruplets.
     (-2,  0, 0, 2)
 '''
 
-class Solution:
-    # @return a list of lists of length 4, [[val1,val2,val3,val4]]
-    def fourSum(self, num, target):
-        num.sort()
-        return num
+def binary_search(array, value):
+	low, high = 0, len(array)
+	while low < high:
+		mid = (low + high) / 2
+		midval = array[mid]
+		if midval < value:
+			low = mid+1
+		elif midval > value:
+			high = mid
+		else:
+			return mid
 
+	return None
+
+class Solution:
+	# @return a list of lists of length 4, [[val1,val2,val3,val4]]
+	def fourSum(self, num, target):
+		mapping = []
+		num.sort()
+		itemNum = len(num)
+		for s in range(0, itemNum - 3):
+			for e in reversed(range(s + 3, itemNum)):
+				for s2 in range(s + 1, e - 1):
+					needed = target - (num[s] + num[s2] + num[e])
+					if not binary_search(num[s2+1:e], needed) is None:
+						mapping.append([num[s], num[s2], needed, num[e]])
+		return mapping
+		
 if __name__ == '__main__':
 	print Solution().fourSum([1, 0, -1, 0, -2, 2], 0)

@@ -28,12 +28,12 @@ class Solution:
         charsInDict = [False] * (sLen)
 
         for i in range(0, sLen):
-             charsInDict[i] = s[:i+1] in dict
-             if charsInDict[i] is False:
-                for j in range(0, i):
-                    if charsInDict[j] is True:
-                        if s[j+1:i+1] in dict:
-                            charsInDict[i] = True
+            charsInDict[i] = s[:i+1] in dict
+            if charsInDict[i] is True:
+                continue
+
+            for j in range(0, i):
+                charsInDict[i] = charsInDict[j] is True and s[j+1:i+1] in dict
         return charsInDict[sLen-1]
 
 if __name__ == '__main__':

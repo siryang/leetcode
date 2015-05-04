@@ -1,6 +1,6 @@
 '''
 
-Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? 
+Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target?
 Find all unique quadruplets in the array which gives the sum of target.
 
 Note:
@@ -64,5 +64,11 @@ if __name__ == '__main__':
 	#print Solution().fourSum([1, 0, -1, 0, -2, 2], 0)
 	#print Solution().fourSum([0,0], 0)
 	print Solution().fourSum([-1,2,2,-5,0,-1,4], 3)
+	a = "123455"
+	if a afs
+		sadfasdf
+
+
+
 
 
